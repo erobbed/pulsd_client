@@ -13,13 +13,13 @@ class FormContainer extends React.Component {
 
   handleChangeStart = date => {
     this.setState({
-      startDate: date
+      start: date
     });
   };
 
   handleChangeEnd = date => {
     this.setState({
-      endDate: date
+      end: date
     });
   };
 
@@ -29,8 +29,15 @@ class FormContainer extends React.Component {
     });
   };
 
+  handleSubmit = () => {
+    const body = {
+      method: "POST",
+      event: this.state
+    };
+    fetch(`${process.env.REACT_APP_RAILS_API}/events`);
+  };
+
   render() {
-    console.log(this.state);
     return (
       <div>
         <h1 className="form">Create a New Event</h1>
